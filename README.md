@@ -2,7 +2,7 @@ compilers-2019
 main repository for lab works
 
 
-##### 1. Short description about my chosen theme.  
+##### 1. Short description about my chosen theme  
 Program with OCR-system, which loads photo and document, and compares it.   
 
 ##### 2. Description of my language (types, built-in functions etc.)   
@@ -19,7 +19,8 @@ description of `Expression`, `Statement`, `Declaration` (folder Syntax).
 For semantic it uses `parserTree` and class `Semantic`.  
 After all tests use translator.  
 
-##### Example:
+##### Example
+**Source code:**
 ```
 func main()
 {
@@ -37,7 +38,9 @@ func main()
     }
 }
 main();
-Output:
+```
+**Output:**
+```
 functional read "test1.png"
 functional print "test1.png"
 ```
