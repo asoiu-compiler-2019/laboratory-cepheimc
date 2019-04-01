@@ -1,0 +1,7 @@
+E:\Interpreter\Interpreter\bin\Debug\Interpreter.exe.config
+E:\Interpreter\Interpreter\bin\Debug\Interpreter.exe
+E:\Interpreter\Interpreter\bin\Debug\Interpreter.pdb
+E:\Interpreter\Interpreter\obj\Debug\Interpreter.csprojAssemblyReference.cache
+E:\Interpreter\Interpreter\obj\Debug\Interpreter.csproj.CoreCompileInputs.cache
+E:\Interpreter\Interpreter\obj\Debug\Interpreter.exe
+E:\Interpreter\Interpreter\obj\Debug\Interpreter.pdb

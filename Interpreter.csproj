@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{79A3B4BD-4491-46AB-A961-6E339C6F023C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Interpreter</RootNamespace>
+    <AssemblyName>Interpreter</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ErrorSink.cs" />
+    <Compile Include="Lexer\Lexical.cs" />
+    <Compile Include="Lexer\StringExtensions.cs" />
+    <Compile Include="Parser\Options.cs" />
+    <Compile Include="Parser\Parsers.cs" />
+    <Compile Include="Parser\Parsers.Declaration.cs" />
+    <Compile Include="Parser\Parsers.Statement.cs" />
+    <Compile Include="Parser\SyntaxException.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Semantic\Semantic.cs" />
+    <Compile Include="SourceCode.cs" />
+    <Compile Include="SourceLocation.cs" />
+    <Compile Include="SourceSpan.cs" />
+    <Compile Include="Syntax\Declarations\Declaration.cs" />
+    <Compile Include="Syntax\Declarations\FuncDeclaration.cs" />
+    <Compile Include="Syntax\Declarations\ParameterDeclaration.cs" />
+    <Compile Include="Syntax\Declarations\VariableDeclaration.cs" />
+    <Compile Include="Syntax\Expressions\BinaryExpression.cs" />
+    <Compile Include="Syntax\Expressions\ConstantExpression.cs" />
+    <Compile Include="Syntax\Expressions\Expression.cs" />
+    <Compile Include="Syntax\Expressions\IdentifierExpression.cs" />
+    <Compile Include="Syntax\Expressions\LambdaExpression.cs" />
+    <Compile Include="Syntax\Expressions\FuncCallExpression.cs" />
+    <Compile Include="Syntax\Expressions\NewExpression.cs" />
+    <Compile Include="Syntax\Expressions\ReferenceExpression.cs" />
+    <Compile Include="Syntax\Expressions\UnaryExpression.cs" />
+    <Compile Include="Syntax\SourceDoc.cs" />
+    <Compile Include="Syntax\Statements\BlockStatements.cs" />
+    <Compile Include="Syntax\Statements\BreakStatement.cs" />
+    <Compile Include="Syntax\Statements\CaseStatement.cs" />
+    <Compile Include="Syntax\Statements\ElseStatement.cs" />
+    <Compile Include="Syntax\Statements\EmptyStatement.cs" />
+    <Compile Include="Syntax\Statements\IfStatement.cs" />
+    <Compile Include="Syntax\Statements\ReturnStatement.cs" />
+    <Compile Include="Syntax\Statements\Statements.cs" />
+    <Compile Include="Syntax\Statements\SwitchStatement.cs" />
+    <Compile Include="Syntax\SyntaxNode.cs" />
+    <Compile Include="Syntax\SyntaxCatagery.cs" />
+    <Compile Include="Syntax\SyntaxKind.cs" />
+    <Compile Include="Syntax\Visitor.cs" />
+    <Compile Include="Token.cs" />
+    <Compile Include="TokenCatagory.cs" />
+    <Compile Include="TokenKind.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <Compile Include="Parser\Parsers.Expression.cs" />
+    <Compile Include="Parser\Parsers.Api.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
