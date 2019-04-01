@@ -1,6 +1,4 @@
 ﻿
-using System;
-
 namespace Interpreter.Syntax.Expressions
 {
     public class ConstantExpression : Expression
@@ -16,7 +14,6 @@ namespace Interpreter.Syntax.Expressions
         {
             Value = value;
             ConstentKind = kind;
-           //Console.WriteLine($"Constant {value}");
         }
     }
 

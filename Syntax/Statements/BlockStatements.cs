@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Interpreter.Syntax.Expressions;
 
 namespace Interpreter.Syntax.Statements
 {
@@ -16,7 +12,7 @@ namespace Interpreter.Syntax.Statements
         public BlockStatement(SourceSpan span, IEnumerable<SyntaxNode> contents) : base(span)
         {
             Contents = contents;
-            Console.WriteLine($"  Block statement: ");
+            /*Console.WriteLine($"  Block statement: ");
             foreach (var c in Contents)
             {
                 if (c.Kind == SyntaxKind.FuncCallExpression)
@@ -50,7 +46,7 @@ namespace Interpreter.Syntax.Statements
                     Console.WriteLine($"          {base.Display()}contest {c.Display()} {c.Kind}");
                 }
             
-            }
+            }*/
         }
     }
 }

@@ -20,9 +20,8 @@ namespace Interpreter.Syntax.Declarations
             ReturnType = returnType;
             Parameters = parameters;
             Body = body;
-            Console.WriteLine($"{Display()} {Kind}");
-            Console.WriteLine($"{Display()}  name {name} ");
-           // Console.WriteLine($"{Display()}  body {Body.Display()} ");
+           // Console.WriteLine($"{Display()} {Kind}");
+           // Console.WriteLine($"{Display()}  name {name} ");
         }
     }
 }

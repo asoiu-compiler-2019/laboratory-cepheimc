@@ -14,7 +14,6 @@ namespace Interpreter.Syntax.Expressions
         {
             return $"    " + base.Display();
             
-           // Console.WriteLine($"            {Kind} span {Span} priority {Span.Priority}");
         }
 
         protected Expression(SourceSpan span) : base(span)

@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Interpreter.Lexer;
 using Interpreter.Parser;
-using Interpreter.Syntax;
-using Interpreter.Semantic;
 
 namespace Interpreter
 {
@@ -25,6 +20,7 @@ namespace Interpreter
                           "a = \"test1.png\";\n" +
                           "b = \"test2.png\";\n" +
                           "c = \"test1.png\";\n" +
+                          "read(c);\n" +
                           "switch(c)\n" +
                           "{\n" +
                           "case a: print(a);\n" +
@@ -37,19 +33,20 @@ namespace Interpreter
             int count = 0;
             var sourceCode = new SourceCode(code);
             var tokens = lexical.LexFile(sourceCode).ToArray();
-            Console.WriteLine($"\nLexer\n");
+            
             foreach (var token in tokens)
             {
                 if (token.Kind == TokenKind.Error)
                 {
                     count++;
                 }
-              //  Console.WriteLine($"line {token.Span.Start.Line} {token.Kind} ( \"{token.Value}\" ) "); //column {token.Span.Start.Column}-{token.Span.End.Column}
+               // Console.WriteLine($"line {token.Span.Start.Line} {token.Kind} ( \"{token.Value}\" ) "); //column {token.Span.Start.Column}-{token.Span.End.Column}
             }
             
 
-            if (lexical.ErrorSink.Count() > 0 || count > 0)
+            if (lexical.ErrorSink.Any() || count > 0)
             {
+                Console.WriteLine($"\nLexer\n");
                 Console.WriteLine($"Error");
 
                 foreach (var error in lexical.ErrorSink)
@@ -63,17 +60,15 @@ namespace Interpreter
             }
             else
             {
-                 Console.WriteLine($"\nSyntax\n");
-                var ast = parser.ParseFile(sourceCode, tokens);
-
-                Console.WriteLine($"\nSemantic\n");
+                parser.ParseFile(sourceCode, tokens);
+                
                 Semantic.Semantic semantic = new Semantic.Semantic(parser);
-               // semantic.PrintStatement();
                 semantic.AnalyzeFile();
                 
 
-                if (lexical.ErrorSink.Count() > 0)
+                if (lexical.ErrorSink.Any())
                 {
+                    Console.WriteLine($"\nSyntax\n");
                     foreach (var error in lexical.ErrorSink)
                     {
                         Console.WriteLine(new string('-', Console.WindowWidth / 3));
@@ -83,8 +78,10 @@ namespace Interpreter
                     Console.WriteLine(new string('-', Console.WindowWidth / 2));
                     lexical.ErrorSink.Clear();
                 }
+
                 else if (semantic.errors.Count > 0)
                 {
+                    Console.WriteLine($"\nSemantic\n");
                     var err = semantic.errors.Distinct();
                     foreach (var e in err)
                     {
@@ -94,7 +91,9 @@ namespace Interpreter
                 }
                 else
                 {
-                    
+                    Interpreter interpreter = new Interpreter(parser);
+                    Console.WriteLine($"\nOutput\n");
+                    interpreter.CreateCode();
                 }
             }
             Console.ReadKey();

@@ -1,6 +1,4 @@
-﻿
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 namespace Interpreter.Syntax.Declarations
 {
@@ -13,7 +11,7 @@ namespace Interpreter.Syntax.Declarations
         public ParameterDeclaration(SourceSpan span, string name, string type) : base(span, name)
         {
             Type = type;
-            Console.WriteLine($"{Display()} parameter: name {name}");
+           // Console.WriteLine($"{Display()} parameter: name {name}");
         }
     }
 }

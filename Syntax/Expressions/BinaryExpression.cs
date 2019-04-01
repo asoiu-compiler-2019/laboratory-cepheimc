@@ -18,7 +18,7 @@ namespace Interpreter.Syntax.Expressions
             Left = left;
             Right = right;
             Operator = op;
-            Console.WriteLine($"  {Display()} {Kind}");
+          /*  Console.WriteLine($"  {Display()} {Kind}");
             Console.WriteLine($"    {Display()} Operator {Operator.ToString()}");
             if (Left.Kind == SyntaxKind.IdentifierExpression)
             {
@@ -55,7 +55,7 @@ namespace Interpreter.Syntax.Expressions
                 Console.WriteLine($"      {Display()} RIGHT {Right.Kind}");
             }
 
-            
+            */
         }
     }
 

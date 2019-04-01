@@ -1,6 +1,4 @@
-﻿
-using System;
-using System.Collections.Generic;
+﻿using System;
 using Interpreter.Syntax.Expressions;
 
 namespace Interpreter.Syntax.Declarations
@@ -17,8 +15,8 @@ namespace Interpreter.Syntax.Declarations
         {
             Type = type;
             Value = value;
-            Console.WriteLine($"  {Display()} {Kind}");
-            Console.WriteLine($"  {Display()}  name {name} ");
+           // Console.WriteLine($"  {Display()} {Kind}");
+           // Console.WriteLine($"  {Display()}  name {name} ");
         }
     }
 }

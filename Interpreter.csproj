@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ErrorSink.cs" />
+    <Compile Include="Interpreter.cs" />
     <Compile Include="Lexer\Lexical.cs" />
     <Compile Include="Lexer\StringExtensions.cs" />
     <Compile Include="Parser\Options.cs" />

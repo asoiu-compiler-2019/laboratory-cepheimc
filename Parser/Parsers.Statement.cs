@@ -89,15 +89,7 @@ namespace Interpreter.Parser
                 contents.Add(ParseStatement());
             }
 
-            foreach (var c in conditions)
-            {
-               // Console.WriteLine($"  case {c.Display()} {c.Kind}");
-            }
-            foreach (var c in contents)
-            {
-                //Console.WriteLine($"  {base.Display()}body {c.Display()} {c.Kind}");
-            }
-
+            
             CaseStatement case1 = new CaseStatement(CreateSpan(start), conditions, contents);
             statm.Add(case1);
             return case1;
@@ -159,11 +151,7 @@ namespace Interpreter.Parser
                 contents.Add(ParseStatement());
             });
 
-            foreach (var c in contents)
-            {
-                //Console.WriteLine($"contents {c.Kind}");
-            }
-
+            
             BlockStatement block = new BlockStatement(CreateSpan(start), contents);
             statm.Add(block);
             return block;
@@ -187,9 +175,11 @@ namespace Interpreter.Parser
             List<CaseStatement> cases = new List<CaseStatement>();
 
             var start = TakeKeyword("switch");
+            Take(TokenKind.LeftParenthesis);
+            Expression expr = ParseExpression();
 
-            Expression expr;
-            MakeBlock(() => expr = ParseExpression(), TokenKind.LeftParenthesis, TokenKind.RightParenthesis);
+            Take(TokenKind.RightParenthesis);
+            
             MakeBlock(() =>
             {
                 while (current == "case")
@@ -198,7 +188,7 @@ namespace Interpreter.Parser
                 }
             });
 
-            SwitchStatement sw = new SwitchStatement(CreateSpan(start), cases);
+            SwitchStatement sw = new SwitchStatement(CreateSpan(start), expr, cases);
             statm.Add(sw);
             return sw;
         }

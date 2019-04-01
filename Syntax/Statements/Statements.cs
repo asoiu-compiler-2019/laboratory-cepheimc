@@ -13,13 +13,11 @@ namespace Interpreter.Syntax.Statements
         public override string Display()
         {
             return $"    " + base.Display();
-           // Console.WriteLine($"        {Kind} span {Span}  priority {Span.Priority}");
         }
 
         protected Statement(SourceSpan span) : base(span)
         {
-            priority++;
-           // Console.WriteLine($"{Display()}  p {priority}");
+            
         }
     }
     

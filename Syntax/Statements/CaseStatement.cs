@@ -16,7 +16,7 @@ namespace Interpreter.Syntax.Statements
         {
             Body = body;
             Cases = cases;
-            Console.WriteLine($"        {base.Display()}Case statement: ");
+           /* Console.WriteLine($"        {base.Display()}Case statement: ");
             foreach (var c in Cases)
             {
                 if (c.Kind == SyntaxKind.IdentifierExpression)
@@ -64,7 +64,7 @@ namespace Interpreter.Syntax.Statements
                     Console.WriteLine($"          {base.Display()}body {c.Display()} {c.Kind}");
                 }
                 
-            }
+            }*/
             
             
         }

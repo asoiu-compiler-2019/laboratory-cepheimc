@@ -19,11 +19,11 @@ namespace Interpreter.Syntax
             SourceCode = sourceCode;
             Children = children;
 
-            Console.WriteLine($"{base.Display()}Source code");
+           /* Console.WriteLine($"{base.Display()}Source code");
             foreach (var c in children)
             {
                 Console.WriteLine($"  {base.Display()}{c.Kind}");
-            }
+            }*/
         }
     }
 }

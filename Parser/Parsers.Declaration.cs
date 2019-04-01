@@ -32,9 +32,7 @@ namespace Interpreter.Parser
                 {
                     statements.Add(ParseStatement());
                 }
-
-                Console.WriteLine($"count {statements.Count}");
-
+                
                 contents.Add(new BlockStatement(CreateSpan(statementsStart), statements));
             }
 
@@ -62,7 +60,7 @@ namespace Interpreter.Parser
            
             var body = ParserScope();
 
-            Console.WriteLine($"body {body.Kind}");
+           // Console.WriteLine($"body {body.Kind}");
 
             FuncDeclaration f = new FuncDeclaration(CreateSpan(start), name, returnType, parameters, body);
             statm.Add(f);
