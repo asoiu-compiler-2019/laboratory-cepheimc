@@ -97,7 +97,6 @@ namespace Interpreter
                     
                 }
             }
-
             Console.ReadKey();
         }
 
