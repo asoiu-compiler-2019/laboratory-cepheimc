@@ -27,10 +27,9 @@ func main()
     photo a;
     photo b;
     photo c;
-    a = "test1.png";
-    b = "test2.png";
-    c = "test1.png";
-    read(c);
+    a = "E:\test1.png";
+    b = "E:\test2.png";
+    c = "E:\test1.png";
     switch(c)
     {
          case a: print(a);
@@ -39,8 +38,9 @@ func main()
 }
 main();
 ```
+In this example the first thing is creating function `main` without parameters. Next step is declaration of variables `a`, `b` and `c` with type `photo` and assignment of string literal with full path with name. After that call switch-case statement, in which `c` variable is checked for equality with other photo. If variable is equal in one of the cases, execute function `print` to output information about photo to standart output stream. After creating execute function `main`.
+
 **Output:**
 ```
-functional read "test1.png"
 functional print "test1.png"
 ```
